@@ -14,15 +14,15 @@ before_script:
 
 script:
   - docker --version # print the version for logging
-  - docker build ./project/udagram-feed-api -t masiorama/udagram-feed-api:latest
-  - docker build ./project/udagram-user-api -t masiorama/udagram-user-api:latest
-  - docker build ./project/udagram-frontend -t masiorama/udagram-frontend:latest
-  - docker build ./project/udagram-reverse-proxy -t masiorama/udagram-reverse-proxy:latest
+  - docker build ./project/udagram-feed-api -t somethingwicked/udagram-feed-api:latest
+  - docker build ./project/udagram-user-api -t somethingwicked/udagram-user-api:latest
+  - docker build ./project/udagram-frontend -t somethingwicked/udagram-frontend:latest
+  - docker build ./project/udagram-reverse-proxy -t somethingwicked/udagram-reverse-proxy:latest
 
 # Tasks to perform after the process is successful. Formatting the Docker username and password as below enables you to programmatically log in without having the password exposed in logs.
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push masiorama/udagram-feed-api:latest
-  - docker push masiorama/udagram-user-api:latest
-  - docker push masiorama/udagram-frontend:latest
-  - docker push masiorama/udagram-reverse-proxy:latest
+  - docker push somethingwicked/udagram-feed-api:latest
+  - docker push somethingwicked/udagram-user-api:latest
+  - docker push somethingwicked/udagram-frontend:latest
+  - docker push somethingwicked/udagram-reverse-proxy:latest
